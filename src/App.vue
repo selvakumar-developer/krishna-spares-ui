@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+import { useQuery } from '@vue/apollo-composable'
+import gql from 'graphql-tag'
+
+const { result } = useQuery(gql`
+      query getUsers {
+        users {
+          _id
+          name
+        }
+      }
+    `);
+
+
 </script>
 
 <template>
